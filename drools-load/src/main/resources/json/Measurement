@@ -1,0 +1,60 @@
+{
+    "task": {
+      "count": -1,
+      "filter": null,
+      "parameters": {
+        "target": "i2.cdn.turner.com",
+        "server": ""
+      },
+      "created": 1329944169241156,
+      "start_time": null,
+      "interval_sec": 600.0,
+      "priority": null,
+      "tag": null,
+      "end_time": null,
+      "type": "dns_lookup",
+      "id": "3"
+    },
+    "parameters": {
+      "count": -1,
+      "target": "i2.cdn.turner.com",
+      "parameters": null,
+      "start_time": "2012-06-06T00:06:14.593Z",
+      "interval_sec": 600,
+      "server": "",
+      "priority": 0,
+      "end_time": "2012-06-06T23:26:14.593Z",
+      "key": "3",
+      "type": "dns_lookup"
+    },
+    "success": true,
+    "timestamp": 1338941175490000,
+    "device_properties": {
+      "battery_level": 96,
+      "cell_info": null,
+      "timestamp": 1338941175487000,
+      "network_type": "EDGE",
+      "os_version": "INCREMENTAL:eng.root.20120210.171733, RELEASE:4.0.3, SDK_INT:15",
+      "device_info": {
+        "model": "Full Android on Crespo",
+        "os": "INCREMENTAL:eng.root.20120210.171733, RELEASE:4.0.3, SDK_INT:15",
+        "manufacturer": "unknown"
+      },
+      "carrier": "T-Mobile",
+      "location": {
+        "latitude": 47.649999999999999,
+        "longitude": -122.297
+      },
+      "rssi": 8,
+      "app_version": "0.2",
+      "location_type": "network",
+      "is_battery_charging": false
+    },
+    "values": {
+      "time_ms": "777",
+      "real_hostname": "\"8.27.224.126\"",
+      "address": "\"8.27.224.126\""
+    },
+    "type": "dns_lookup",
+    "id": "538794"
+  }

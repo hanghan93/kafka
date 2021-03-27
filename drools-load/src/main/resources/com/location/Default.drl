@@ -1,0 +1,7 @@
+package com.location;
+
+rule "first sample"
+when
+then
+	System.out.println("hi");
+end

@@ -1,0 +1,183 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "task": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "count": {
+            "type": "number"
+          },
+          "filter": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "target": {
+                "type": "string"
+              },
+              "server": {
+                "type": "string"
+              }
+            }
+          },
+          "created": {
+            "type": "number"
+          },
+          "start_time": {
+            "type": "string"
+          },
+          "interval_sec": {
+            "type": "number"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "end_time": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "count": {
+            "type": "number"
+          },
+          "target": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "string"
+          },
+          "start_time": {
+            "type": "string"
+          },
+          "interval_sec": {
+            "type": "number"
+          },
+          "server": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "end_time": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "success": {
+        "type": "boolean"
+      },
+      "timestamp": {
+        "type": "number"
+      },
+      "device_properties": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "battery_level": {
+            "type": "number"
+          },
+          "cell_info": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "number"
+          },
+          "network_type": {
+            "type": "string"
+          },
+          "os_version": {
+            "type": "string"
+          },
+          "device_info": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "model": {
+                "type": "string"
+              },
+              "os": {
+                "type": "string"
+              },
+              "manufacturer": {
+                "type": "string"
+              }
+            }
+          },
+          "carrier": {
+            "type": "string"
+          },
+          "location": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              }
+            }
+          },
+          "rssi": {
+            "type": "number"
+          },
+          "app_version": {
+            "type": "string"
+          },
+          "location_type": {
+            "type": "string"
+          },
+          "is_battery_charging": {
+            "type": "string"
+          }
+        }
+      },
+      "values": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "time_ms": {
+            "type": "string"
+          },
+          "real_hostname": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          }
+        }
+      },
+      "type": {
+        "type": "string"
+      },
+      "id": {
+        "type": "string"
+      }
+    }
+  }
+}
