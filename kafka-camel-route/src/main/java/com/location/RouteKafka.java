@@ -11,7 +11,7 @@ public class RouteKafka extends org.apache.camel.builder.RouteBuilder {
         doConfig();
     }
 
-    public void doConfig() throws {
+    public void doConfig() throws Exception {
         final /* org.apache.camel.model.Model */ CamelContext camelContext = getContext();
 
         final org.apache.camel.impl.SimpleRegistry registry = new org.apache.camel.impl.SimpleRegistry();
