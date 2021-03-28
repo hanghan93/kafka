@@ -11,6 +11,7 @@
     <modules>
         <module>model-location</module>
         <module>drools-load</module>
+        <module>kafka-camel-route</module>
     </modules>
     <properties>
         <drools-version>7.51.0.Final</drools-version>

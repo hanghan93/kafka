@@ -37,6 +37,28 @@ public abstract class JsonMapper {
         }
     }
 
+    public static <T> T from(String json, Class<T> valueType) {
+        return entity(from(json), valueType);
+    }
+
+    private static JsonNode from(String json) {
+        try {
+            return MAPPER.readTree(json);
+        } catch (IOException e) {
+            throw new IllegalStateException("Cannot read json", e);
+        }
+    }
+
+
+    @SuppressWarnings("unchecked")
+    private static <T> T entity(JsonNode node, Class<T> valueType) {
+        try {
+            return MAPPER.treeToValue(node, valueType);
+        } catch (IOException e) {
+            throw new IllegalStateException(String.format("Cannot convert to %s", valueType), e);
+        }
+    }
+
     private static <T> ObjectReader getReader(Class<T> valueType) {
         return MAPPER.readerFor(valueType)
                 .with(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT);
