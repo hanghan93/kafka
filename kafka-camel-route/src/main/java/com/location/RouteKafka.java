@@ -1,6 +1,5 @@
 package com.location;
 
-import java.util.Properties;
 import org.apache.camel.CamelContext;
 
 
@@ -40,9 +39,18 @@ public class RouteKafka extends org.apache.camel.builder.RouteBuilder {
                         exchange.getOut().setBody(JsonMapper.json(stdcontainer));
                     }
 
-                }).id("route_Processor_1").to("log:route_Log_1" + "?level=WARN")
-
-                .id("route_Log_1");
+                }).id("route_Processor_1")
+                .to("kafka:location-std-events" + "?brokers=localhost:9092" + "&connectionMaxIdleMs=540000"
+                + "&receiveBufferBytes=1048576" + "&metadataMaxAgeMs=300000" + "&reconnectBackoffMs=50"
+                + "&securityProtocol=PLAINTEXT"
+                + "&partitioner=org.apache.kafka.clients.producer.internals.DefaultPartitioner"
+                + "&compressionCodec=none"
+                + "&serializerClass=org.apache.kafka.common.serialization.StringSerializer"
+                + "&requestRequiredAcks=1" + "&requestTimeoutMs=30000" + "&retryBackoffMs=100"
+                + "&sendBufferBytes=131072" + "&bufferMemorySize=33554432" + "&retries=0"
+                + "&producerBatchSize=16384" + "&lingerMs=0" + "&maxBlockMs=60000"
+                + "&maxRequestSize=1048576" + "&maxInFlightRequest=5")
+                .id("route_Kafka_2");
     }
 
     private org.apache.camel.main.Main main;
@@ -69,18 +77,6 @@ public class RouteKafka extends org.apache.camel.builder.RouteBuilder {
         main.addRouteBuilder(this);
 
         main.run();
-    }
-
-    public void stop() throws java.lang.Exception {
-        if (main != null) {
-            main.stop();
-        }
-    }
-
-    public void shutdown() throws java.lang.Exception {
-        if (main != null) {
-            main.shutdown();
-        }
     }
 
     public static void main(String[] args) {

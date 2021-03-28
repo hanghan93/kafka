@@ -1,3 +1,4 @@
 # Project exclude paths
 /drools-load/target/
 /model-location/target/
+/kafka-camel-routek/target/
