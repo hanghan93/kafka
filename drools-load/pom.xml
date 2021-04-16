@@ -7,7 +7,7 @@
 
   <groupId>org.example</groupId>
   <artifactId>drools-load</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>kjar</packaging>
 
   <parent>
@@ -38,6 +38,18 @@
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-compiler</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-model-compiler</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-canonical-model</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-ci</artifactId>
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
@@ -71,7 +83,7 @@
     </dependency>
     <dependency>
       <groupId>org.example</groupId>
-      <artifactId>generate-pojo</artifactId>
+      <artifactId>model-location</artifactId>
       <version>1.0.0</version>
       <scope>compile</scope>
     </dependency>
@@ -91,6 +103,9 @@
         <artifactId>kie-maven-plugin</artifactId>
         <version>7.51.0.Final</version>
         <extensions>true</extensions>
+        <configuration>
+          <generateModel>WITHMVEL</generateModel>
+        </configuration>
       </plugin>
     </plugins>
   </build>

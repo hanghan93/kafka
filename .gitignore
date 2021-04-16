@@ -2,3 +2,6 @@
 /drools-load/target/
 /model-location/target/
 /kafka-camel-route/target/
+.idea/compiler.xml
+.idea/compiler.xml
+.idea/jarRepositories.xml

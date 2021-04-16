@@ -4,6 +4,7 @@ import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.builder.*;
 import org.kie.api.definition.KiePackage;
+import org.kie.api.io.ResourceType;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
@@ -16,15 +17,16 @@ public class RuleRunner<T> {
     static final Logger LOG = LoggerFactory.getLogger(RuleRunner.class);
 
     public T run(T container){
+
         KieServices kieServices = KieServices.Factory.get();
-        KieContainer kContainer = kieServices.getKieClasspathContainer();
+        KieContainer kContainer = kieServices.newKieClasspathContainer();
         Results verifyResults = kContainer.verify();
         for (Message m : verifyResults.getMessages()) {
             LOG.info("{}", m);
         }
 
         LOG.info("Creating kieBase");
-        KieBase kieBase = kContainer.getKieBase("kb.com.location");
+        KieBase kieBase = kContainer.getKieBase();
 
         LOG.info("There should be rules: ");
         for ( KiePackage kp : kieBase.getKiePackages() ) {
@@ -33,7 +35,7 @@ public class RuleRunner<T> {
             }
         }
         LOG.info("Creating kieSession");
-        KieSession session = kieBase.newKieSession();
+        KieSession session = kContainer.newKieSession();
         session.addEventListener(new TrackingAgendaEventListener());
 
         FactHandle factHandle = session.insert(container);
@@ -41,7 +43,11 @@ public class RuleRunner<T> {
             int firedRules = session.fireAllRules();
             System.out.println("fired "+firedRules);
             return container;
-        } finally {
+        }
+        catch (Exception e){
+            throw new RuntimeException("Found an error while executing rules: "+e.getMessage());
+        }
+        finally {
             session.delete(factHandle);
             session.dispose();
         }
