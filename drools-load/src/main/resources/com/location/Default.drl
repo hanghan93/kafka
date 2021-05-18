@@ -1,7 +1,9 @@
 package com.location;
+import com.location.Measurement;
 
 rule "first sample"
 when
+    $measurement: Measurement(type == "dns_lookup")
 then
 	System.out.println("hi");
 end
